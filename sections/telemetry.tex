@@ -95,7 +95,7 @@ integer.
 
 \textbf{State:} The arming state of the control system.
 
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{| c | c | p{3.5in} |}
         \hline
@@ -139,7 +139,7 @@ integer.
 
 \textbf{State:} The state of the actuator. See Table \ref{tbl:actuator-states} for the valid actuator states.
 
-\begin{table}
+\begin{table}[H]
     \centering
     \begin{tabular}{| c | c | c |}
         \hline
@@ -154,6 +154,36 @@ integer.
     \label{tbl:actuator-states}
 \end{table}
 
-\subsection{Warnings}
+\subsection{Warnings} \label{sec:warnings}
 
-% TODO: This specification should also include packets for warnings on temperature and pressure thresholds.
+Warnings are issued when measurements exceed a certain threshold.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \bitbox{8}{Type} \\
+    \end{bytefield}
+    \caption{Warning message format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Type:} The warning type. A list of valid types can be found in Table \ref{tbl:warnings}.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | p{3.5in} |}
+        \hline
+        \textbf{Name}  & \textbf{Value} & \textbf{Description}                                                                        \\
+        \hline
+        HIGH\_PRESSURE & 0              & Pressure levels have exceeded the warning threshold and manual intervention is required.    \\
+        \hline
+        HIGH\_TEMP     & 1              & Temperature levels have exceeded the warning threshold and manual intervention is required. \\
+        \hline
+    \end{tabular}
+    \caption{Warning types}
+    \label{tbl:warnings}
+\end{table}
