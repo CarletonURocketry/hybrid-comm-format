@@ -4,15 +4,39 @@ The hybrid control system used by CU InSpace requires network communication betw
 control input box at the ground control station, the pad control system at the rocket's launch pad and a user interface
 that can be placed anywhere with connection to the network.
 
-There are three primary forms of messages that are sent over the network:
+In this set up, the pad control box is considered a server. It provides sensor measurements as well as information
+about the control system's state. It is the only source of truth in the system. No other node should be responsible for
+storing state information about the control system.
+
+The UI and input control box form clients. This creates a distinction between two types of client nodes:
 
 \begin{enumerate}
-    \item Measured data from the sensors on the pad control system.
-    \item Control signals for actuating valves and motors on the pad control system from the control input box.
-    \item Arming signals for initiating each stage of the arming procedure.
+    \item A control node, which is able to issue commands to the control system. There should only be one control node in the
+          system.
+    \item A telemetry node, which consumes telemetry data for either logging or display. There can be as many of these nodes in
+          the system as necessary.
 \end{enumerate}
 
-This specification provides the description of the structure for each of these message types and their valid messages.
+These two distinct types of client nodes inform the decision to distinguish two primary message categories: Control
+(Section \ref{sec:control}) and Telemetry \ref{sec:telemetry}.
+
+\subsection{Control}
+
+Control messages provide a specification for issuing commands to the control system and receiving a response. These
+commands are for actuating valves and servos, as well as for progressing the arming level of the control system.
+
+Control messages issued from the client to the server are replied to with an acknowledgement containing the status of
+the request.
+
+\subsection{Telemetry}
+
+Telemetry messages provide a specification for sending information about the control system state. This includes sensor
+measurements, the current arming level, actuator states and warning messages.
+
+Telemetry messages are not requested, unlike the control commands. They are sent in a continuous stream from the server
+to the client.
+
+\subsection{Notices}
 
 It should be noted that this specification is designed under the assumption that all messages are sent using TCP over a
 local network.

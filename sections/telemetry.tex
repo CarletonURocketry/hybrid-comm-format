@@ -1,0 +1,159 @@
+\section{Telemetry} \label{sec:telemetry}
+
+\subsection{Measurements}
+
+The hybrid control system measures three key pieces of information:
+
+\begin{enumerate}
+    \item Temperature
+    \item Pressure
+    \item Mass
+\end{enumerate}
+
+These measurements give the operator insight into whether or not the system is becoming unstable, if filling is
+proceeding nominally, etc.
+
+All measurements are only temporally valid, so they must be associated with a time stamp indicating the time of
+measurement.
+
+\subsubsection{Temperature} \label{sec:temperature}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \wordbox{1}{Temperature} \\
+        \bitbox{8}{ID} \\
+    \end{bytefield}
+    \caption{Temperature measurement format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Temperature:} Temperature measured in millidegrees Celsius. This field is a signed 32-bit integer.
+
+\textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
+
+\subsection{Pressure} \label{sec:pressure}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \wordbox{1}{Pressure} \\
+        \bitbox{8}{ID} \\
+    \end{bytefield}
+    \caption{Pressure measurement format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Pressure} Pressure measured in thousandths of PSI (milli-PSI). This field is an unsigned 32-bit integer.
+
+\textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
+
+\subsubsection{Mass} \label{sec:mass}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \wordbox{1}{Mass} \\
+        \bitbox{8}{ID} \\
+    \end{bytefield}
+    \caption{Mass measurement format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Mass} Mass measured in grams. This field is an unsigned 32-bit integer.
+
+\textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
+
+\subsection{Arming State} \label{sec:arming-state}
+
+The hybrid control system's arming state should be known at all times over telemetry.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \bitbox{8}{State} \\
+    \end{bytefield}
+    \caption{Arming state message format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{State:} The arming state of the control system.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c | p{3.5in} |}
+        \hline
+        State               & Value & Description                                                                              \\
+        \hline
+        ARMED\_PAD          & 0     & The pad control box is armed.                                                            \\
+        \hline
+        ARMED\_VALVES       & 1     & The control input box is armed, permitting control over solenoid valves.                 \\
+        \hline
+        ARMED\_IGNITION     & 2     & The pad control box is armed, connecting power to ignition circuity. Actuating the quick
+        disconnect is now permitted.                                                                                           \\
+        \hline
+        ARMED\_DISCONNECTED & 3     & The quick disconnect is disconnected. Commands to ignite the ignitor are now permitted.  \\
+        \hline
+        ARMED\_LAUNCH       & 4     & The ignitor is lit. Commands to open the fire valve are now permitted.                   \\
+        \hline
+    \end{tabular}
+    \caption{Valid arming states}
+    \label{tbl:arming-states}
+\end{table}
+
+\subsection{Actuator State} \label{sec:act-state}
+
+The state of the hybrid control system's actuators should be known at all times over telemetry.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \bitbox{8}{ID}
+        \bitbox{8}{State} \\
+    \end{bytefield}
+    \caption{Actuator state message format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{ID:} The unique numerical ID of the actuator whose state is being sent in this message.
+
+\textbf{State:} The state of the actuator. See Table \ref{tbl:actuator-states} for the valid actuator states.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c | c |}
+        \hline
+        State & Value & Description                    \\
+        \hline
+        OFF   & 0     & The actuator is off, or close. \\
+        \hline
+        ON    & 1     & The actuator is on, or open.   \\
+        \hline
+    \end{tabular}
+    \caption{Valid actuator states}
+    \label{tbl:actuator-states}
+\end{table}
+
+\subsection{Warnings}
+
+% TODO: This specification should also include packets for warnings on temperature and pressure thresholds.

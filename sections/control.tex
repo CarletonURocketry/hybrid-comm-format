@@ -1,0 +1,119 @@
+\section{Control} \label{sec:control}
+
+\subsection{Actuation}
+
+The pad control system is composed of several actuators which need to be controlled from the control input box at the
+ground station.
+
+All of the actuators on the system are binary actuators with only an "on" or "off" state.
+
+Actuators will be assigned a unique numerical ID agreed upon by all nodes on the network.
+
+All actuation requests must be responded to with an actuation acknowledgement indicating the status of the command.
+
+\subsubsection{Actuation Request} \label{sec:act-req}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \bitbox{8}{ID}
+        \bitbox{8}{State} \\
+    \end{bytefield}
+    \caption{Actuation request format}
+\end{figure}
+
+\textbf{ID:} The unique numerical identifier associated with the actuator who this request is destined for.
+
+\textbf{State:} The state to put the actuator in. Valid states are listed in Table \ref{tbl:actuator-states}.
+
+\subsubsection{Actuation Acknowledgement} \label{sec:act-ack}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \bitbox{8}{ID}
+        \bitbox{8}{Status} \\
+    \end{bytefield}
+    \caption{Actuation acknowledgement format}
+\end{figure}
+
+\textbf{ID:} The unique numerical identifier associated with the actuator who this acknowledgement is from.
+
+\textbf{Status:} The status of the request that is being acknowledged. Valid status are listed in Table
+\ref{tbl:actuation-statuses}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c | p{4in} |}
+        \hline
+        \textbf{Name} & \textbf{Value} & \textbf{Description}                                                 \\
+        \hline
+        ACT\_OK       & 0              & The pad control system has put the actuator in the requested state.  \\
+        \hline
+        ACT\_DENIED   & 1              & The current arming level is too low to operate the request actuator. \\
+        \hline
+        ACT\_DNE      & 2              & The actuator ID is not associated with an actuator.                  \\
+        \hline
+        ACT\_INV      & 3              & An invalid state was requested.                                      \\
+        \hline
+    \end{tabular}
+    \caption{Valid actuation acknowledgement statuses}
+    \label{tbl:actuation-statuses}
+\end{table}
+
+\subsection{Arming}
+
+Arming messages are used to advance the current level of arming in the pad control system. Many arming sequences must
+take place remotely from the control input box at the ground station, hence their inclusion in the specification.
+
+There are two message types for arming: the arming request and the arming acknowledgement. All arming requests are to
+be responded to with an arming acknowledgement indicating the status of the request.
+
+\subsubsection{Arming Request} \label{sec:arm-req}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{8}
+        \bitheader{0-7} \\
+        \bitbox{8}{Level} \\
+    \end{bytefield}
+    \caption{Arming request format}
+\end{figure}
+
+\textbf{Level:} The arming level that the client is requesting be moved to. A list of valid arming levels can be found
+in Table \ref{tbl:arming-states}. Only the \texttt{ARMED\_VALVES} and the \texttt{ARMED\_IGNITION} arming levels can be
+requested with this message type. The remaining arming levels are obtained by specific actuator interactions.
+
+\subsubsection{Arming Acknowledgement} \label{sec:arm-ack}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{8}
+        \bitheader{0-7} \\
+        \bitbox{8}{Status} \\
+    \end{bytefield}
+    \caption{Arming acknowledgement format}
+\end{figure}
+
+\textbf{Status:} The status of the arming request which this message is acknowledging. A list of valid statuses can be
+found in Table \ref{tbl:arming-statuses}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c | p{4in} |}
+        \hline
+        \textbf{Name} & \textbf{Value} & \textbf{Description}                                                                  \\
+        \hline
+        ARM\_OK       & 0              & The arming request was processed and the pad control system has changed arming level. \\
+        \hline
+        ARM\_DENIED   & 1              & The arming request could not be completed because the current arming level is
+        not high enough for that level progression, or the progression must be caused via an actuator command.                 \\
+        \hline
+        ARM\_INV      & 2              & Invalid arming level was specified.                                                                 \\
+        \hline
+    \end{tabular}
+    \caption{Valid arming acknowledgement statuses}
+    \label{tbl:arming-statuses}
+\end{table}

@@ -1,0 +1,42 @@
+\section{Headers}
+
+In order for the recipient to reliably parse incoming messages, a standardized header will precede all communication
+messages. This header will specify the type of message which follows, giving the recipient enough information to parse
+it.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \bitbox{8}{Type}
+        \bitbox{8}{Sub-type} \\
+    \end{bytefield}
+    \caption{Message header}
+\end{figure}
+
+\textbf{Type:} The type of message being sent. See Table \ref{tbl:types} for valid types.
+
+\textbf{Sub-type:} The sub type of message being sent. See Table \ref{tbl:types} for valid sub-types associated with
+each type.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c | c | p{2in} |}
+        \hline
+        \textbf{Type} & \textbf{Value} & \textbf{Sub-Type} & \textbf{Value} & \textbf{Description}               \\
+        \hline
+        CONTROL       & 0              & ACT\_REQ          & 0              & See section \ref{sec:act-req}      \\
+                      &                & ACT\_ACK          & 1              & See section \ref{sec:act-ack}      \\
+                      &                & ARM\_REQ          & 2              & See section \ref{sec:arm-req}      \\
+                      &                & ARM\_ACK          & 3              & See section \ref{sec:arm-ack}      \\
+        \hline
+        TELEMETRY     & 1              & TEMPERATURE       & 0              & See section \ref{sec:temperature}  \\
+                      &                & PRESSURE          & 1              & See section \ref{sec:pressure}     \\
+                      &                & MASS              & 2              & See section \ref{sec:mass}         \\
+                      &                & ARMING\_STATE     & 3              & See section \ref{sec:arming-state} \\
+                      &                & ACT\_STATE        & 4              & See section \ref{sec:act-state}    \\
+        \hline
+    \end{tabular}
+    \caption{Valid types and sub-types}.
+    \label{tbl:types}
+\end{table}
