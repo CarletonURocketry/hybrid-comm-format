@@ -1,0 +1,61 @@
+\documentclass[10pt]{article}
+
+% Page geometry
+\usepackage{geometry}{
+    \geometry{
+        a4paper
+    }
+}
+
+% Document title
+\def\doctitle{Hybrid Control System Packet Format}
+
+\usepackage[defaultfam,tabular,lining]{montserrat} % Font
+
+% Link configuration
+\usepackage[
+    pdftitle={\doctitle},
+    pdfborderstyle={/S/U/W 1},
+    allbordercolors={0 0 0},
+    citebordercolor={1 1 1}, % No border for citations %
+]{hyperref}
+
+\usepackage{bytefield} % For illustrations of bit fields
+\usepackage{float} % For positioning of figures and tables
+\usepackage{graphicx} % For images
+
+% Remove paragraph indentation and use newline to separate instead. %
+\usepackage[parfill]{parskip}
+\setlength{\parindent}{0cm}
+
+% Title page information
+\title{\doctitle}
+\author{
+    \includegraphics[width=150pt]{logo.png} \\
+    Matteo Golin \\
+    \texttt{matteo.golin@gmail.com}
+}
+\date{
+    Created: September 8th, 2024 \\
+    Modified: \today
+}
+
+
+
+\begin{document}
+
+% Title
+\maketitle
+\pagebreak
+
+% Content sections
+
+\input{sections/overview.tex}
+
+\input{sections/arming.tex}
+
+\input{sections/actuation.tex}
+
+\input{sections/data.tex}
+
+\end{document}

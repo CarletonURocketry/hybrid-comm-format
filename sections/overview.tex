@@ -1,0 +1,20 @@
+\section{Introduction}
+
+The hybrid control system used by CU InSpace requires network communication between nodes. The nodes consist of a
+control input box at the ground control station, the pad control system at the rocket's launch pad and a user interface
+that can be placed anywhere with connection to the network.
+
+There are three primary forms of messages that are sent over the network:
+
+\begin{enumerate}
+    \item Measured data from the sensors on the pad control system.
+    \item Control signals for actuating valves and motors on the pad control system from the control input box.
+    \item Arming signals for initiating each stage of the arming procedure.
+\end{enumerate}
+
+This specification provides the description of the structure for each of these message types and their valid messages.
+
+It should be noted that this specification is designed under the assumption that all messages are sent using TCP over a
+local network.
+
+All fields are to be assumed as having little-endian byte ordering unless specified otherwise.

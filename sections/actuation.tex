@@ -1,0 +1,65 @@
+\section{Actuation}
+
+The pad control system is composed of several actuators which need to be controlled from the control input box at the
+ground station.
+
+All of the actuators on the system are binary actuators with only an "on" or "off" state.
+
+Actuators will be assigned a unique numerical ID agreed upon by all nodes on the network.
+
+All actuation requests must be responded to with an actuation acknowledgement indicating the status of the command.
+
+\subsection{Actuation Request}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \bitbox{8}{ID}
+        \bitbox{8}{State} \\
+    \end{bytefield}
+    \caption{Actuation request format}
+    \label{format:actuation-req}
+\end{figure}
+
+\textbf{ID:} The unique numerical identifier associated with the actuator who this request is destined for.
+
+\textbf{State:} The state to put the actuator in. Valid states are \texttt{0} for \texttt{OFF} and \texttt{1} for
+\texttt{ON}.
+
+\subsection{Actuation Acknowledgement}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \bitbox{8}{ID}
+        \bitbox{8}{Status} \\
+    \end{bytefield}
+    \caption{Actuation acknowledgement format}
+    \label{format:actuation-ack}
+\end{figure}
+
+\textbf{ID:} The unique numerical identifier associated with the actuator who this acknowledgement is from.
+
+\textbf{Status:} The status of the request that is being acknowledged. Valid status are listed in Table
+\ref{tbl:actuation-statuses}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{| c | c | p{4in} |}
+        \hline
+        \textbf{Name} & \textbf{Value} & \textbf{Description}                                                 \\
+        \hline
+        OK            & 0              & The pad control system has put the actuator in the requested state.  \\
+        \hline
+        BAD\_PERM     & 1              & The current arming level is too low to operate the request actuator. \\
+        \hline
+        DNE           & 2              & The actuator ID is not associated with an actuator.                  \\
+        \hline
+        INV           & 3              & An invalid state was requested.                                      \\
+        \hline
+    \end{tabular}
+    \caption{Valid actuation acknowledgement statuses}
+    \label{tbl:actuation-statuses}
+\end{table}
