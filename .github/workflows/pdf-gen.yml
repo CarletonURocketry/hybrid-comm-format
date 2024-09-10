@@ -21,7 +21,7 @@ jobs:
       - name: Upload documents
         uses: actions/upload-artifact@v3
         with:
-          name: Telemetry Specifications
+          name: Hybrid Control System Packet Format
           path: spec.pdf
       - name: Generate PDF page
         run: |
