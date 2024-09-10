@@ -22,11 +22,11 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: Telemetry Specifications
-          path: Hybrid_Control_System_Packet_Format.pdf
+          path: spec.pdf
       - name: Generate PDF page
         run: |
           mkdir pdfs
-          cp Hybrid_Control_System_Packet_Format.pdf pdfs/
+          cp spec.pdf pdfs/
           cat > pdfs/index.html <<EOL
           <!doctype html>
           <html>
