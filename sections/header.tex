@@ -2,7 +2,20 @@
 
 In order for the recipient to reliably parse incoming messages, a standardized header will precede all communication
 messages. This header will specify the type of message which follows, giving the recipient enough information to parse
-it.
+it. This structure will look like Figure \ref{fig:packet-structure}.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{16}
+        \bitheader{0-15} \\
+        \wordbox{1}{Header} \\
+        \wordbox[lr]{1}{Message} \\
+        \skippedwords \\
+        \wordbox[lrb]{1}{} \\
+    \end{bytefield}
+    \caption{Packet structure}
+    \label{fig:packet-structure}
+\end{figure}
 
 \begin{figure}[H]
     \centering
