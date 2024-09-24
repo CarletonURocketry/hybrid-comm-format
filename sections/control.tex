@@ -1,5 +1,12 @@
 \section{Control} \label{sec:control}
 
+Control messages are intended to be sent using the TCP protocol. This is because control commands must be guaranteed to
+be delivered since they control safety critical components of the control system. The control client and pad server
+must also be able to reliably tell when the connection used for communication has been severed. TCP provides such
+reliability.
+
+The port used for control messages is \texttt{50001}.
+
 \subsection{Actuation}
 
 The pad control system is composed of several actuators which need to be controlled from the control input box at the
@@ -111,7 +118,7 @@ found in Table \ref{tbl:arming-statuses}.
         ARM\_DENIED   & 1              & The arming request could not be completed because the current arming level is
         not high enough for that level progression, or the progression must be caused via an actuator command.                 \\
         \hline
-        ARM\_INV      & 2              & Invalid arming level was specified.                                                                 \\
+        ARM\_INV      & 2              & Invalid arming level was specified.                                                   \\
         \hline
     \end{tabular}
     \caption{Valid arming acknowledgement statuses}
