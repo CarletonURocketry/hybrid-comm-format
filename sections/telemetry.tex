@@ -126,6 +126,8 @@ integer.
     \label{tbl:arming-states}
 \end{table}
 
+
+
 \subsection{Actuator State} \label{sec:act-state}
 
 The state of the hybrid control system's actuators should be known at all times over telemetry.
@@ -195,7 +197,7 @@ integer.
         \hline
         XV-12            & 12 & Solenoid valve                                                           \\
         \hline
-        Quick disconnect & 14 & The quick disconnect to separate ground system plumbing from the rocket. \\
+        Quick disconnect & 13 & The quick disconnect to separate ground system plumbing from the rocket. \\
         \hline
         Igniter          & 14 & The igniter that starts the flame for launch                             \\
         \hline
@@ -236,4 +238,38 @@ integer.
     \end{tabular}
     \caption{Warning types}
     \label{tbl:warnings}
+\end{table}
+
+
+
+\section{Arming Logic}
+The control logic that the pad server uses to govern which actuation and arming commands are valid at any given time are based on the arming state in Figure 13.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=4in]{./assets/Hybrid_Control_FSM.png}
+	\caption{Logging control}
+	\label{fig:logging-fsm}
+\end{figure}
+
+
+\begin{table}[H]
+	\centering
+	\begin{tabular}{| c | c |}
+		\hline
+		State               & Available Actuators                                                                             \\
+		\hline
+		ARMED\_PAD                    & None                                             \\
+		\hline
+		ARMED\_VALVES                & XV-1...XV12        \\
+		\hline
+		ARMED\_IGNITION          & Quick Disconnect, XV-1...XV12                                                                                    \\
+		\hline
+		ARMED\_DISCONNECTED  & Igniter, XV-1...XV12                   \\
+		\hline
+		ARMED\_LAUNCH               & Fire Valve, XV-1...XV12          \\
+		\hline
+	\end{tabular}
+	\caption{Available Actuators for each arming state}
+	\label{tbl:available-actuators}
 \end{table}
