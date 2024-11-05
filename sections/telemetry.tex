@@ -4,8 +4,8 @@ All telemetry messages are designed to be sent over UDP using multicast function
 implementation to send a single UDP message which can be delivered to all subscribers.
 
 In addition, the use of the UDP protocol is well-suited for telemetry applications. Measurements are made and
-transmitted multiple times in a tenth of a second. It is not worth the overhead of TCP to have acknowledgements for each
-of these messages, since if one is lost many will follow and the information will become obsolete quickly.
+transmitted multiple times in a tenth of a second. It is not worth the overhead of TCP to have acknowledgements for
+each of these messages, since if one is lost many will follow and the information will become obsolete quickly.
 
 The multicast address for telemetry is \texttt{224.0.0.10}, using port \texttt{50002}.
 
@@ -106,20 +106,19 @@ integer.
 
 \begin{table}[H]
     \centering
-    \begin{tabular}{| c | c | p{3.5in} |}
+    \begin{tabular}{| c | c |}
         \hline
-        State               & Value & Description                                                                              \\
+        State               & Value \\
         \hline
-        ARMED\_PAD          & 0     & The pad control box is armed.                                                            \\
+        ARMED\_PAD          & 0     \\
         \hline
-        ARMED\_VALVES       & 1     & The control input box is armed, permitting control over solenoid valves.                 \\
+        ARMED\_VALVES       & 1     \\
         \hline
-        ARMED\_IGNITION     & 2     & The pad control box is armed, connecting power to ignition circuity. Actuating the quick
-        disconnect is now permitted.                                                                                           \\
+        ARMED\_IGNITION     & 2     \\
         \hline
-        ARMED\_DISCONNECTED & 3     & The quick disconnect is disconnected. Commands to ignite the ignitor are now permitted.  \\
+        ARMED\_DISCONNECTED & 3     \\
         \hline
-        ARMED\_LAUNCH       & 4     & The ignitor is lit. Commands to open the fire valve are now permitted.                   \\
+        ARMED\_LAUNCH       & 4     \\
         \hline
     \end{tabular}
     \caption{Valid arming states}
@@ -195,7 +194,7 @@ integer.
         \hline
         XV-12            & 12 & Solenoid valve                                                           \\
         \hline
-        Quick disconnect & 14 & The quick disconnect to separate ground system plumbing from the rocket. \\
+        Quick disconnect & 13 & The quick disconnect to separate ground system plumbing from the rocket. \\
         \hline
         Igniter          & 14 & The igniter that starts the flame for launch                             \\
         \hline
