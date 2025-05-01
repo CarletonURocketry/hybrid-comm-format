@@ -236,3 +236,37 @@ integer.
     \caption{Warning types}
     \label{tbl:warnings}
 \end{table}
+
+\subsection{Continuity state} \label{sec:continuity}
+
+The continuity sensor measures if the igniter is continuous (closed circuit) or not (open circuit, burnt through/fired). 
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \bitbox{8}{State} \\
+    \end{bytefield}
+    \caption{Continuity state message format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{State:} The state of the continuity sensor. See Table \ref{tbl:continuity_states} for the valid states. 
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c |}
+        \hline
+        State & Value & Description                    \\
+        \hline
+        OPEN   & 0     & Continuity sensor is reading low, circuit is open. \\
+        \hline
+        CLOSED    & 1     & Continuity sensor is reading high, circuit is closed.  \\
+        \hline
+    \end{tabular}
+    \caption{Valid continuity sensor states}
+    \label{tbl:continuity_states}
+\end{table}
