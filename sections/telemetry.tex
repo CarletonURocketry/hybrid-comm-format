@@ -168,8 +168,6 @@ integer.
         \hline
         Actuator Name    & ID & Description                                                              \\
         \hline
-        Fire Valve       & 0  & Solenoid valve which releases oxidizer onto flame.                       \\
-        \hline
         XV-1             & 1  & Solenoid valve                                                           \\
         \hline
         XV-2             & 2  & Solenoid valve                                                           \\
@@ -178,7 +176,7 @@ integer.
         \hline
         XV-4             & 4  & Solenoid valve                                                           \\
         \hline
-        XV-5             & 5  & Solenoid valve                                                           \\
+        XV-5             & 5  & Solenoid valve (used as fire valve)                                      \\
         \hline
         XV-6             & 6  & Solenoid valve                                                           \\
         \hline
@@ -241,7 +239,8 @@ integer.
 
 \subsection{Continuity state} \label{sec:continuity}
 
-The continuity sensor measures if the igniter is continuous (closed circuit) or not (open circuit, burnt through/fired). 
+The continuity sensor measures if the igniter is continuous (closed circuit) or not (open circuit, burnt
+through/fired).
 
 \begin{figure}[H]
     \centering
@@ -256,17 +255,17 @@ The continuity sensor measures if the igniter is continuous (closed circuit) or 
 \textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
 integer.
 
-\textbf{State:} The state of the continuity sensor. See Table \ref{tbl:continuity_states} for the valid states. 
+\textbf{State:} The state of the continuity sensor. See Table \ref{tbl:continuity_states} for the valid states.
 
 \begin{table}[H]
     \centering
     \begin{tabular}{| c | c | c |}
         \hline
-        State & Value & Description                    \\
+        State  & Value & Description                                           \\
         \hline
-        OPEN   & 0     & Continuity sensor is reading low, circuit is open. \\
+        OPEN   & 0     & Continuity sensor is reading low, circuit is open.    \\
         \hline
-        CLOSED    & 1     & Continuity sensor is reading high, circuit is closed.  \\
+        CLOSED & 1     & Continuity sensor is reading high, circuit is closed. \\
         \hline
     \end{tabular}
     \caption{Valid continuity sensor states}
