@@ -11,12 +11,13 @@ The multicast address for telemetry is \texttt{224.0.0.10}, using port \texttt{5
 
 \subsection{Measurements}
 
-The hybrid control system measures three key pieces of information:
+The hybrid control system measures four key pieces of information:
 
 \begin{enumerate}
     \item Temperature
     \item Pressure
     \item Mass
+    \item Thrust
 \end{enumerate}
 
 These measurements give the operator insight into whether or not the system is becoming unstable, if filling is
@@ -61,7 +62,7 @@ integer.
 \textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
 integer.
 
-\textbf{Pressure} Pressure measured in thousandths of PSI (milli-PSI). This field is an unsigned 32-bit integer.
+\textbf{Pressure} Pressure measured in thousandths of PSI (milli-PSI). This field is a signed 32-bit integer.
 
 \textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
 
@@ -82,6 +83,26 @@ integer.
 integer.
 
 \textbf{Mass} Mass measured in grams. This field is a signed 32-bit integer.
+
+\textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
+
+\subsubsection{Thrust} \label{sec:thrust}
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \wordbox{1}{Thrust} \\
+        \bitbox{8}{ID} \\
+    \end{bytefield}
+    \caption{Thrust measurement format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Thrust} Engine thrust measured in Newtons. This field is an unsigned 32-bit integer.
 
 \textbf{ID:} The numerical ID of the sensor which took the measurement. This field is an unsigned 8-bit integer.
 
