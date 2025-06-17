@@ -292,3 +292,43 @@ integer.
     \caption{Valid continuity sensor states}
     \label{tbl:continuity_states}
 \end{table}
+
+\subsection{Connection Status} \label{sec:conn-status}
+
+Indicates the state of the connection between the control client and the pad server.
+
+\begin{figure}[H]
+    \centering
+    \begin{bytefield}{32}
+        \bitheader{0-31} \\
+        \wordbox{1}{Time} \\
+        \bitbox{8}{Status} \\
+    \end{bytefield}
+    \caption{Connection status message format}
+\end{figure}
+
+\textbf{Time:} A time stamp measured in milliseconds since the system received power. This field is an unsigned 32-bit
+integer.
+
+\textbf{Status:} The status of the connection. See Table \ref{tbl:connection-statuses} for the valid statuses.
+
+\begin{table}[H]
+    \centering
+    \begin{tabular}{| c | c | c |}
+        \hline
+        Status       & Value & Description                                                                     \\
+        \hline
+        CONNECTED    & 0     & The control client is connected through TCP.                                    \\
+        \hline
+        RECONNECTING & 1     & The control client is not connected, but a re-connection attempt is being made. \\
+        \hline
+        DISCONNECTED & 2     & The control client is not connected, re-connection attempts failed.             \\
+        \hline
+    \end{tabular}
+    \caption{Valid connection statuses}
+    \label{tbl:connection-statuses}
+\end{table}
+
+Note that in practice, the \texttt{DISCONNECTED} state may never be observed. This is because a failed re-connection
+attempt can be handled by the pad server as an automatic mission abort trigger, resulting in a complete system
+shut-down and shut off of all valves.
