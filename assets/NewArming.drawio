@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Linux x86_64; rv:138.0) Gecko/20100101 Firefox/138.0" version="27.1.1">
+  <diagram name="Page-1" id="zcAWWOVPqzooIwFptcPi">
+    <mxGraphModel dx="930" dy="511" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-8" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-1" target="pGBu0zXRkdCd_jRNTzgh-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-1" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="180" y="100" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-2" target="pGBu0zXRkdCd_jRNTzgh-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-2" value="ARMED_PAD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="87.5" width="140" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-3" target="pGBu0zXRkdCd_jRNTzgh-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-3" target="pGBu0zXRkdCd_jRNTzgh-2">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="258" />
+              <mxPoint x="540" y="125" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-3" value="ARMED_VALVES" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="220" width="140" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-4" target="pGBu0zXRkdCd_jRNTzgh-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-4" target="pGBu0zXRkdCd_jRNTzgh-3">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="540" y="388" />
+              <mxPoint x="540" y="276" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-4" value="ARMED_IGNITION" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="350" width="140" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-5" target="pGBu0zXRkdCd_jRNTzgh-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-5" target="pGBu0zXRkdCd_jRNTzgh-4">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="528" />
+              <mxPoint x="550" y="406" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-5" value="ARMED_DISCONNECTED" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="490" width="160" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-6" target="pGBu0zXRkdCd_jRNTzgh-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="1" source="pGBu0zXRkdCd_jRNTzgh-6" target="pGBu0zXRkdCd_jRNTzgh-5">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="550" y="629" />
+              <mxPoint x="550" y="546" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-6" value="ARMED_LAUNCH" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="350" y="610" width="140" height="75" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-7" value="" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;fillColor=#000000;" vertex="1" parent="1">
+          <mxGeometry x="590" y="622.5" width="50" height="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-9" value="PCC turned on" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="240" y="87.5" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-11" value="&lt;div&gt;Valve arming key turned&lt;/div&gt;&lt;div&gt;to armed position on MCC&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="260" y="170" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-13" value="&lt;div&gt;Ignition arming switch turned&lt;/div&gt;&lt;div&gt;to armed position on MCC&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="245" y="300" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-15" value="&lt;div&gt;Quick disconnect actuated to the&lt;/div&gt;&lt;div&gt;&amp;nbsp;&quot;disconnected&quot; position&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="235" y="435" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-17" value="Ignitor puck lit (ignited)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="260" y="572.5" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-20" value="&lt;div&gt;Fire valve opened&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="480" y="650" width="110" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-21" value="LAUNCH" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="645" y="632.5" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-22" value="START" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="110" y="110" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-32" value="&lt;div&gt;Valve arming key turned&lt;/div&gt;&lt;div&gt;to disarmed position on MCC&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="540" y="170" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-34" value="&lt;div&gt;Ignition arming switch turned to&amp;nbsp;&lt;/div&gt;&lt;div&gt;disarmed position on MCC&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="535" y="310" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-36" value="&lt;div&gt;Quick disconnect actuator&lt;/div&gt;&lt;div&gt;moved to closed position&lt;/div&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="555" y="443" width="150" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pGBu0zXRkdCd_jRNTzgh-39" value="Igniter circuitry turned off" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="555" y="550" width="150" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
